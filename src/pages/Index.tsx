@@ -400,6 +400,152 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Case Studies */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl font-bold text-slate-800 mb-4">Кейсы наших клиентов</h2>
+            <p className="text-xl text-slate-600">Реальные результаты внедрения ИИ-аудита звонков</p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+            {[
+              {
+                company: "Чистый Дом",
+                industry: "Клининговые услуги",
+                review: "Подключили ИИ-аудит звонков в феврале. До этого теряли заявки из-за невнятных скриптов и забытых перезвонов. После внедрения менеджеры стали быстрее реагировать и использовать нужные фразы. Уже через месяц начали чувствовать разницу в загруженности бригад.",
+                period: "за 1,5 месяца",
+                results: [
+                  { icon: "TrendingUp", value: "с 62% до 88%", label: "Прирост заявок, дошедших до выезда" },
+                  { icon: "Clock", value: "с 15 до 6 минут", label: "Сократилось время перезвона" },
+                  { icon: "DollarSign", value: "+12%", label: "Средний чек вырос за счёт допродаж" }
+                ],
+                gradient: "from-green-500 to-emerald-400",
+                bgColor: "bg-green-50"
+              },
+              {
+                company: "Doc+",
+                industry: "Медицинская клиника",
+                review: "Раньше не знали, что половина звонков на запись к врачу остаётся без ответа. ИИ помог понять, где именно сливаются пациенты. Настроили напоминания, обучение и контроль. Сейчас запись идёт чётко, без потерь.",
+                period: "за 2 месяца",
+                results: [
+                  { icon: "TrendingUp", value: "с 54% до 85%", label: "Доля успешных записей выросла" },
+                  { icon: "Clock", value: "с 9 до 3 минут", label: "Среднее время дозвона снизилось" },
+                  { icon: "Calendar", value: "+22%", label: "Заполняемость графика врачей увеличилась" }
+                ],
+                gradient: "from-blue-500 to-cyan-400",
+                bgColor: "bg-blue-50"
+              },
+              {
+                company: "ЮрПрофи",
+                industry: "Юридические услуги",
+                review: "Мы были уверены, что менеджеры работают отлично, но оказалось, что 30% лидов 'теряются' на первых вопросах. После ИИ-аудита переписали скрипты и начали отрабатывать возражения. Продажи пошли вверх.",
+                period: "за 1,5 месяца",
+                results: [
+                  { icon: "TrendingUp", value: "с 18% до 31%", label: "Конверсия из лида в клиента выросла" },
+                  { icon: "TrendingDown", value: "-27%", label: "Сократили долю 'пустых' звонков" },
+                  { icon: "Briefcase", value: "+15%", label: "Средняя выручка на одного клиента увеличилась" }
+                ],
+                gradient: "from-purple-500 to-indigo-400",
+                bgColor: "bg-purple-50"
+              },
+              {
+                company: "АвтоСелл",
+                industry: "Автосалон",
+                review: "Клиенты часто просили перезвонить, но менеджеры забывали или звонили слишком поздно. Благодаря ИИ мы увидели, кто и где допускает ошибки, и внедрили автопостановку задач в CRM.",
+                period: "за 2 месяца",
+                results: [
+                  { icon: "TrendingUp", value: "+19%", label: "Количество завершённых сделок выросло" },
+                  { icon: "Clock", value: "с 12 до 4 минут", label: "Время ответа на входящие заявки сократилось" },
+                  { icon: "DollarSign", value: "+23%", label: "Продажи дополнительных опций выросли" }
+                ],
+                gradient: "from-orange-500 to-amber-400",
+                bgColor: "bg-orange-50"
+              },
+              {
+                company: "FitPro",
+                industry: "Сеть фитнес-клубов",
+                review: "До внедрения ИИ не было понятно, почему люди не приходят на пробные тренировки. Анализ звонков показал, что менеджеры не проговаривают выгоды и не фиксируют контакт правильно. Обучили персонал — и результат не заставил себя ждать.",
+                period: "за 1 месяц",
+                results: [
+                  { icon: "TrendingUp", value: "с 38% до 70%", label: "Запись на пробные тренировки выросла" },
+                  { icon: "TrendingDown", value: "-41%", label: "Кол-во 'забытых' лидов снизилось" },
+                  { icon: "CreditCard", value: "+25%", label: "Кол-во проданных абонементов выросло" }
+                ],
+                gradient: "from-pink-500 to-rose-400",
+                bgColor: "bg-pink-50"
+              }
+            ].map((caseStudy, index) => (
+              <Card key={index} className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group animate-fade-in overflow-hidden" style={{ animationDelay: `${index * 100}ms` }}>
+                <div className={`h-2 bg-gradient-to-r ${caseStudy.gradient}`}></div>
+                
+                <CardHeader className="pb-4">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <CardTitle className="text-2xl font-bold text-slate-800 mb-2">{caseStudy.company}</CardTitle>
+                      <Badge variant="secondary" className={`${caseStudy.bgColor} text-slate-700 font-medium`}>
+                        {caseStudy.industry}
+                      </Badge>
+                    </div>
+                    <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${caseStudy.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon name="Quote" size={20} className="text-white" />
+                    </div>
+                  </div>
+                  
+                  <p className="text-slate-600 leading-relaxed text-lg italic">
+                    "{caseStudy.review}"
+                  </p>
+                </CardHeader>
+                
+                <CardContent className="space-y-4">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Badge className={`bg-gradient-to-r ${caseStudy.gradient} text-white font-semibold px-3 py-1`}>
+                      <Icon name="BarChart3" size={14} className="mr-1" />
+                      Результаты {caseStudy.period}
+                    </Badge>
+                  </div>
+                  
+                  <div className="grid gap-4">
+                    {caseStudy.results.map((result, resultIndex) => (
+                      <div key={resultIndex} className="flex items-center gap-4 p-4 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors duration-200">
+                        <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${caseStudy.gradient} flex items-center justify-center flex-shrink-0`}>
+                          <Icon name={result.icon} size={18} className="text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <div className={`text-xl font-bold bg-gradient-to-r ${caseStudy.gradient} bg-clip-text text-transparent mb-1`}>
+                            {result.value}
+                          </div>
+                          <div className="text-slate-600 text-sm font-medium">{result.label}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+            
+            {/* Empty card for visual balance */}
+            <Card className="border-2 border-dashed border-slate-300 bg-slate-50/50 flex items-center justify-center min-h-[400px] group hover:border-blue-400 hover:bg-blue-50/50 transition-all duration-300 animate-fade-in" style={{ animationDelay: '500ms' }}>
+              <div className="text-center space-y-4">
+                <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Icon name="Plus" size={32} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-700 mb-2">Ваш успех будет здесь</h3>
+                  <p className="text-slate-500 text-sm max-w-xs leading-relaxed">
+                    Присоединяйтесь к компаниям, которые уже увеличили продажи с помощью ИИ
+                  </p>
+                  <Button className="mt-4 bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-600 hover:to-cyan-500 text-white font-semibold shadow-lg">
+                    <Icon name="Rocket" size={16} className="mr-2" />
+                    Начать сейчас
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400">
         <div className="container mx-auto px-6 text-center">
